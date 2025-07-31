@@ -8,12 +8,13 @@ load_dotenv()
 
 # DB connection
 conn = psycopg2.connect(
-    host=os.getenv("dpg-d25p9oqdbo4c7388k3dg-a"),
-    port=os.getenv("5432"),
-    dbname=os.getenv("youtube_etl_db"),
-    user=os.getenv("youtube_etl_db_user"),
-    password=os.getenv("MCpqwRady4kGTsF6RpWgrjo6vRaw4Zvo")
+    host=os.getenv("host"),
+    port=os.getenv("port"),
+    dbname=os.getenv("dbname"),
+    user=os.getenv("user"),
+    password=os.getenv("password")
 )
+
 cur = conn.cursor()
 
 # Load channel data
