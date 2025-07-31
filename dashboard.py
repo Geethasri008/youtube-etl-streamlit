@@ -8,11 +8,11 @@ load_dotenv()
 
 # DB connection
 conn = psycopg2.connect(
-    host=os.getenv("DB_HOST"),
-    port=os.getenv("DB_PORT"),
-    dbname=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD")
+    host=os.getenv("dpg-d25p9oqdbo4c7388k3dg-a"),
+    port=os.getenv("5432"),
+    dbname=os.getenv("youtube_etl_db"),
+    user=os.getenv("youtube_etl_db_user"),
+    password=os.getenv("MCpqwRady4kGTsF6RpWgrjo6vRaw4Zvo")
 )
 cur = conn.cursor()
 
@@ -102,3 +102,8 @@ else:
 
 cur.close()
 conn.close()
+
+
+YOUTUBE_API_KEY = st.secrets["AIzaSyCsLNBL1zNOJx_mzVrzmnNcUhLJ11ETfmM"]
+DB_HOST = st.secrets["localhost"]
+# and so on...
