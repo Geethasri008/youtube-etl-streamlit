@@ -4,17 +4,16 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+#load_dotenv()
 
 # DB connection
 conn = psycopg2.connect(
-    host=os.getenv("host"),
-    port=os.getenv("port"),
-    dbname=os.getenv("dbname"),
-    user=os.getenv("user"),
-    password=os.getenv("password")
+    host=st.secrets["host"],
+    port=st.secrets["port"],
+    dbname=st.secrets["dbname"],
+    user=st.secrets["user"],
+    password=st.secrets["password"]
 )
-
 cur = conn.cursor()
 
 # Load channel data
@@ -105,6 +104,4 @@ cur.close()
 conn.close()
 
 
-YOUTUBE_API_KEY = st.secrets["AIzaSyCsLNBL1zNOJx_mzVrzmnNcUhLJ11ETfmM"]
-DB_HOST = st.secrets["localhost"]
-# and so on...
+
