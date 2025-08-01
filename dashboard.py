@@ -3,13 +3,18 @@ import psycopg2
 import pandas as pd
 import os
 
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
 conn = psycopg2.connect(
-    host=st.secrets["host"],
-    port=st.secrets["port"],
-    dbname=st.secrets["dbname"],
-    user=st.secrets["user"],
-    password=st.secrets["password"]
-)
+    host=os.getenv("localhost"),
+    port=os.getenv("port"),
+    dbname=os.getenv("dbname"),
+    user=os.getenv("user"),
+    password=os.getenv("password")
+) 
 
 cur = conn.cursor()
 
