@@ -4,9 +4,20 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 
-#load_dotenv()
+load_dotenv()
 
-# DB connection
+'''
+for localshot connection
+
+conn = psycopg2.connect(
+    host=os.getenv("localhost"),
+    port=os.getenv("port"),
+    dbname=os.getenv("dbname"),
+    user=os.getenv("user"),
+    password=os.getenv("password")
+) 
+
+'''
 conn = psycopg2.connect(
     host=st.secrets["host"],
     port=st.secrets["port"],
@@ -14,6 +25,7 @@ conn = psycopg2.connect(
     user=st.secrets["user"],
     password=st.secrets["password"]
 )
+
 cur = conn.cursor()
 
 # Load channel data
